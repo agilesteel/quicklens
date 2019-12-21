@@ -118,7 +118,7 @@ case class AuthContext(token: String)
 case class AuthRequest(url: String)
 case class Resource(auth: Either[AuthContext, AuthRequest])
 
-val devResource = Resource(auth = Left(AuthContext("fake"))
+val devResource = Resource(auth = Left(AuthContext("fake")))
 
 val prodResource = devResource.modify(_.auth.eachLeft.token).setTo("real")
 
